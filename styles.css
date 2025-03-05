@@ -1,0 +1,123 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #fff;
+    transition: background-color 0.3s ease-in-out;
+}
+
+header {
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+header p {
+    font-size: 1.2em;
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: center;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+section {
+    padding: 30px 20px;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+section.active {
+    display: block;
+    opacity: 1;
+}
+
+h2, h3, h4 {
+    font-size: 1.8em;
+}
+
+ul {
+    margin-top: 10px;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+a {
+    color: #1e90ff;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    margin-top: 40px;
+}
+
+footer p {
+    font-size: 1.2em;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+/* Specific Sections */
+#landing {
+    background-color: #222;
+}
+
+#streaming, #social-media, #content {
+    background-color: #333;
+    border-top: 2px solid #444;
+}
+
+.chat-box, .comments {
+    margin-top: 30px;
+    background-color: #444;
+    padding: 15px;
+}
+
+.chat-box p, .comments p {
+    font-size: 1.1em;
+}
+
+/* Glitches (for future dynamic use) */
+@keyframes glitch {
+    0% { transform: translate(2px, 2px); }
+    50% { transform: translate(-2px, -2px); }
+    100% { transform: translate(2px, 2px); }
+}
+
+.glitch-text {
+    font-weight: bold;
+    animation: glitch 0.1s infinite;
+}
+
+/* Hidden Content */
+.hidden {
+    display: none;
+}
