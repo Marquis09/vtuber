@@ -3,15 +3,20 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #1c1f26, #2a2e38); /* Cool dark grey-blue gradient */
+    background: linear-gradient(135deg, #1c1f26, #2a2e38);
     color: #f4f4f4;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Header */
 header {
-    background: linear-gradient(to right, #1a1c24, #3a3e49); /* Darker gradient for the header */
+    background: linear-gradient(to right, #1a1c24, #3a3e49);
     padding: 20px 0;
+    width: 100%;
     text-align: center;
 }
 
@@ -21,186 +26,31 @@ header .logo {
     font-weight: bold;
 }
 
-/* Navigation */
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-left: 20px;
-}
-
-nav button {
-    background-color: #4a5568; /* Muted grey */
-    padding: 10px 20px;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-nav button:hover {
-    background-color: #5f6c7e; /* Slightly lighter grey */
-}
-
-/* Hub Page Styles */
-.hub-body {
-    background: linear-gradient(135deg, #2a2e38, #1c1f26); /* Dark gradient background for hub */
-    color: white;
-}
-
-.hub-container {
-    padding: 50px 10%;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 20px;
-}
-
-.grid-item {
-    background: linear-gradient(to bottom, #4a5568, #3e4b61); /* Muted gradient for the grid items */
-    padding: 20px;
+/* Login Page Styling */
+.login-box {
+    width: 100%;
+    max-width: 400px;
+    background-color: #333;
+    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.grid-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-}
-
-.grid-item h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
-.grid-item p {
-    margin-bottom: 10px;
-}
-
-.grid-item button {
-    background-color: #5f6c7e; /* Muted teal/grey */
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.grid-item button:hover {
-    background-color: #6b7d8f; /* Lighter muted teal-grey */
-}
-
-/* Comment Section */
-.comments-section {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     text-align: center;
-    margin-top: 50px;
 }
 
+/* Comments Section */
 .comment-container {
-    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
+    background-color: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 10px;
     max-width: 600px;
     margin: 0 auto;
-    font-size: 1.1rem;
 }
 
-/* Light Comments */
-.light-comment {
-    background-color: #2a2e38;
-    color: #f4f4f4;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    opacity: 0;
-    animation: fadeIn 1s forwards; /* Fade in animation */
+/* Page visibility */
+.page {
+    display: none;
 }
 
-/* Dark Comments */
-.dark-comment {
-    background-color: #4a5568;
-    color: #ffdddd;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    opacity: 0;
-    animation: fadeIn 1s forwards; /* Fade in animation */
-}
-
-/* Fade-out effect */
-.fade-out {
-    animation: fadeOut 1s forwards; /* Fade-out animation */
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-/* Shaking animation */
-.shaking {
-    animation: shake 1s ease-in-out infinite;
-}
-
-@keyframes shake {
-    0% {
-        transform: translateX(0);
-    }
-    25% {
-        transform: translateX(-10px);
-    }
-    50% {
-        transform: translateX(10px);
-    }
-    75% {
-        transform: translateX(-10px);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
-
-/* Glitching elements */
-.glitch-effect {
-    animation: glitch 0.3s infinite alternate;
-}
-
-@keyframes glitch {
-    0% {
-        transform: translate(0);
-        opacity: 1;
-    }
-    50% {
-        transform: translate(-5px, 0);
-        opacity: 0.7;
-    }
-    100% {
-        transform: translate(5px, 0);
-        opacity: 1;
-    }
+.page.active {
+    display: block;
 }
