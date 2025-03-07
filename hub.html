@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VTuber World - Hub</title>
+    <link rel="stylesheet" href="../vtuber/styles.css">
+    <script src="../vtuber/fuction.js" defer></script>
+</head>
+<body class="hub-body">
+
+    <header>
+        <div class="logo">VTuber World</div>
+        <nav>
+            <ul>
+                <li><button onclick="window.location.href='index.html'">Logout</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="hub-container">
+        <section class="grid-container">
+            <!-- Streaming Site: Twitch -->
+            <div class="grid-item glitch-effect">
+                <h3>Live Streams</h3>
+                <img src="https://via.placeholder.com/300x200" alt="Stream" />
+                <p>Watch live streams from top VTubers on Twitch!</p>
+                <a href="https://www.twitch.tv/" target="_blank">
+                    <button>Watch on Twitch</button>
+                </a>
+            </div>
+
+            <!-- Social Media: Instagram, Twitter -->
+            <div class="grid-item glitch-effect">
+                <h3>Follow on Social Media</h3>
+                <img src="https://via.placeholder.com/300x200" alt="Social Media" />
+                <p>Follow VTubers on Instagram and Twitter for updates!</p>
+                <a href="https://www.instagram.com/" target="_blank">
+                    <button>Instagram</button>
+                </a>
+                <a href="https://www.twitter.com/" target="_blank">
+                    <button>Twitter</button>
+                </a>
+            </div>
+
+            <!-- Poll Section (Dark Twist Starts) -->
+            <div class="grid-item glitch-effect">
+                <h3>VTuber Polls</h3>
+                <img src="https://via.placeholder.com/300x200" alt="Polls" />
+                <p>What should I do next? Make a choice...</p>
+                <a href="poll.html">
+                    <button>Vote Now</button>
+                </a>
+            </div>
+        </section>
+
+        <!-- Comments Section -->
+        <section class="comments-section">
+            <h2>Comments</h2>
+            <div id="comment-section" class="comment-container">
+                <!-- Comments will be added here dynamically -->
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Add gradually changing comments with JS
+        const comments = [
+            "You're so cute! Keep up the great work!",
+            "I love your content, you're amazing!",
+            "You seem so friendly and fun to watch! 😊",
+            "I bet you look amazing behind that avatar.",
+            "You must be so happy to be doing this!"
+        ];
+
+        const darkComments = [
+            "You look fake.",
+            "Are you hiding your true self?",
+            "I bet you're ugly behind that persona.",
+            "Stop pretending to be perfect, you're just like the rest of us.",
+            "Why are you so silent? What's really going on?"
+        ];
+
+        let commentIndex = 0;
+        let isDarkPhase = false;
+        let shakingStarted = false; // Flag to start shaking only once
+        const commentSection = document.getElementById("comment-section");
+
+        // Function to display a new comment
+        function displayComment() {
+            let newComment;
+
+            if (isDarkPhase) {
+                newComment = darkComments[commentIndex % darkComments.length];
+            } else {
+                newComment = comments[commentIndex % comments.length];
+            }
+
+            const commentElement = document.createElement("p");
+            commentElement.innerText = newComment;
+            commentElement.classList.add(isDarkPhase ? "dark-comment" : "light-comment");
+
+            commentSection.appendChild(commentElement);
+
+            // Start shaking the comment section once dark comments appear
+            if (isDarkPhase && !shakingStarted) {
+                commentSection.classList.add("shaking");
+                shakingStarted = true; // Prevent shaking from starting multiple times
+            }
+
+            // Remove the comment after a brief moment (5 seconds)
+            setTimeout(() => {
+                commentElement.classList.add("fade-out");
+                // Remove the comment after fade-out animation ends
+                setTimeout(() => {
+                    commentElement.remove();
+                }, 1000); // 1 second fade-out duration
+            }, 5000); // Comment stays for 5 seconds
+
+            commentIndex++;
+
+            // Change phase after a certain number of comments (e.g., 5 comments)
+            if (commentIndex === 5) {
+                isDarkPhase = true; // Switch to dark comments after the 5th comment
+            }
+        }
+
+        // Display a new comment every 5 seconds
+        setInterval(displayComment, 5000);
+    </script>
+
+</body>
+</html>
