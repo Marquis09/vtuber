@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Hub Page Script (Handles comments and glitch effects)
+    // Hub Page Script (Handles comments)
     const commentSection = document.getElementById('comment-section');
     const submitButton = document.getElementById('submit-comment');
     const commentInput = document.getElementById('new-comment');
@@ -73,21 +73,19 @@ document.addEventListener('DOMContentLoaded', function () {
         // Assign a random fake username from the list
         const fakeUsername = fakeUsernames[Math.floor(Math.random() * fakeUsernames.length)];
 
-        // Randomly apply the glitch effect to the comment when bad comments start
-        if (commentIndex > 4) {
-            commentDiv.classList.add('glitch', 'darker');
-            commentDiv.setAttribute('data-text', text); // glitch effect data
-        }
-
         // Add fake username and comment text to the comment
         commentDiv.innerHTML = `<strong>${fakeUsername}:</strong> ${text}`;
 
         commentSection.appendChild(commentDiv);
         commentIndex++;
 
-        // Make the comment disappear after 5 seconds
+        // Make the comment disappear after 5 seconds with a fade-out effect
         setTimeout(() => {
-            commentDiv.style.opacity = 0;
+            // Add transition effect for smooth fade-out
+            commentDiv.style.transition = "opacity 1s ease";
+            commentDiv.style.opacity = 0; // Fade out the comment
+
+            // Remove the comment after the fade-out
             setTimeout(() => {
                 commentDiv.remove();
             }, 1000); // Wait for 1 second before removing the element completely

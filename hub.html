@@ -3,23 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VTuber Nexus - Hub</title>
+    <title>Stella, Guardian of Moths - VTuber Hub</title>
     <link rel="stylesheet" href="../vtuber/styles.css">
     <script src="../vtuber/fuction.js" defer></script>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body class="hub-body">
+    <!-- Header with logo and logout button -->
     <header>
-        <div class="logo">VTuber Nexus</div>
+        <div class="banner">
+            <span class="stella-name"><h1><b>Stella, Guardian of Moths</b></h1></span> <!-- Stylized title as banner -->
+        </div>
         <nav>
             <ul>
-                <li><button id="logout">Logout</button></li>
+                <li><button id="logout" class="logout-btn"><span class="logout-icon">🚪</span>Logout</button></li>
             </ul>
         </nav>
     </header>
 
+    <!-- Main Hub Content -->
     <main class="hub-container">
-        <h2>Welcome to the VTuber Hub</h2>
-        <p>Explore live streams, trending content, and interact with the VTuber community!</p>
+        <h2>Welcome to the Guardian's Realm</h2>
+        <p>Explore the hidden corners of the VTuber world through Stella’s watchful eyes. Discover live streams, trending content, and a community united under the wings of the Guardian of Moths!</p>
 
         <section class="grid-container">
             <div class="grid-item">
@@ -31,7 +36,7 @@
 
             <div class="grid-item">
                 <h3>Social Media</h3>
-                <img src="https://via.placeholder.com/300x200" alt="Social Media">
+                <img src="../vtuber/properties/livestream-vector-illustration-symbol-video-260nw-1678910089.gif" alt="Social Media">
                 <p>Follow VTubers on Twitter and Instagram for updates!</p>
                 <a href="https://www.instagram.com/" target="_blank"><button>Instagram</button></a>
                 <a href="https://www.twitter.com/" target="_blank"><button>Twitter</button></a>
@@ -39,38 +44,39 @@
 
             <div class="grid-item">
                 <h3>Community Polls</h3>
-                <img src="https://via.placeholder.com/300x200" alt="Polls">
+                <img src="../vtuber/properties/livestream-vector-illustration-symbol-video-260nw-1678910089.gif" alt="Polls">
                 <p>Help decide the next big VTuber event!</p>
                 <a href="poll.html"><button>Vote Now</button></a>
             </div>
 
             <div class="grid-item">
                 <h3>Latest Videos</h3>
-                <img src="https://via.placeholder.com/300x200" alt="Videos">
+                <img src="../vtuber/properties/livestream-vector-illustration-symbol-video-260nw-1678910089.gif" alt="Videos">
                 <p>Check out the newest uploads from top VTubers.</p>
                 <a href="#"><button>Watch Videos</button></a>
             </div>
 
             <div class="grid-item">
                 <h3>VTuber Merchandise</h3>
-                <img src="https://via.placeholder.com/300x200" alt="Merch">
+                <img src="../vtuber/properties/livestream-vector-illustration-symbol-video-260nw-1678910089.gif" alt="Merchandise">
                 <p>Get exclusive VTuber-themed apparel and accessories.</p>
                 <a href="#"><button>Shop Now</button></a>
             </div>
 
             <div class="grid-item">
                 <h3>Fan Community</h3>
-                <img src="https://via.placeholder.com/300x200" alt="Community">
-                <p>Join the discussion and share your fan art.</p>
+                <img src="../vtuber/properties/livestream-vector-illustration-symbol-video-260nw-1678910089.gif" alt="Community">
+                <p>Join the discussion and share your fan art. Embrace the light under Stella's wings!</p>
                 <a href="#"><button>Join Now</button></a>
             </div>
         </section>
 
+        <!-- Comment Section -->
         <section class="comments">
-            <h3>Comments</h3>
+            <h3>Whisper to the Guardian</h3>
             <div class="comment-box">
                 <input type="text" id="new-comment" placeholder="Leave a comment...">
-                <button id="submit-comment">Submit</button>
+                <button id="submit-comment">Submit</button> <!-- Normal button without creature mode toggle -->
             </div>
             <div id="comment-section">
                 <!-- Dynamically added comments will go here -->
