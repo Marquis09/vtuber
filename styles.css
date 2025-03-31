@@ -45,82 +45,6 @@ header {
     letter-spacing: 2px;
 }
 
-/* Sticker Gallery Section Styling */
-.sticker-gallery {
-    padding: 2rem;
-    text-align: center;
-    background-color: #fafafa;
-}
-
-.sticker-gallery h3 {
-    font-size: 1.8rem;
-    color: #333;
-    margin-bottom: 1rem;
-}
-
-.sticker-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1rem;
-    justify-items: center;
-}
-
-.sticker-container img {
-    width: 100%;
-    max-width: 180px;
-    height: auto;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.sticker-container img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Floating Stickers Styling */
-.floating-stickers {
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    z-index: -1; /* Ensures stickers stay behind content */
-    pointer-events: none; /* Prevents interaction with floating stickers */
-}
-
-.floating-stickers img {
-    position: absolute;
-    width: 80px;
-    height: auto;
-    opacity: 0.8;
-    animation: float 5s ease-in-out infinite;
-}
-
-/* Animation for floating stickers */
-@keyframes float {
-    0% {
-        transform: translateY(0) rotate(0deg);
-    }
-    50% {
-        transform: translateY(-20px) rotate(15deg);
-    }
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
-}
-
-/* Adjust floating stickers' positions */
-.floating-stickers img:nth-child(1) {
-    top: 10%;
-    left: 15%;
-    animation-delay: 0s;
-}
-
-.floating-stickers img:nth-child(2) {
-    top: 40%;
-    right: 5%;
-    animation-delay: 1s;
-}
-
 /* Logout Button Styling */
 .logout-btn {
     background: linear-gradient(90deg, #D8A7A0, #F2C8B2); /* Softer gradient */
@@ -245,7 +169,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(135deg, #D1B79A, #F2C8B2); /* Softer gradient */
+    background: linear-gradient(135deg, #D8A7A0, #F2C8B2); /* Softer gradient */
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
@@ -345,146 +269,7 @@ button:hover {
     position: relative;
     color: #333; /* Darker text for visibility */
 }
-@keyframes glitch {
-    0% { text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff; }
-    25% { text-shadow: -2px -2px 0px #ff00ff, 2px 2px 0px #00ffff; }
-    50% { text-shadow: 2px -2px 0px #ff00ff, -2px 2px 0px #00ffff; }
-    75% { text-shadow: -2px 2px 0px #ff00ff, 2px -2px 0px #00ffff; }
-    100% { text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff; }
-}
 
-.glitch-mode h1, .glitch-mode h2, .glitch-mode p {
-    animation: glitch 0.3s infinite alternate;
-}
-/* Floating Stickers Styling */
-.floating-stickers {
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    z-index: -1; /* Ensures stickers stay behind content */
-    pointer-events: none; /* Prevents interaction with floating stickers */
-    width: 100%;
-    height: 100%;
-}
-
-/* Styling for each sticker */
-.floating-stickers img {
-    position: absolute;
-    width: 80px;
-    height: auto;
-    opacity: 0.8;
-    animation: float 5s ease-in-out infinite, randomPosition 15s infinite;
-}
-
-/* Keyframes for random positions */
-@keyframes randomPosition {
-    0% {
-        transform: translateX(0) translateY(0);
-    }
-    25% {
-        transform: translateX(200px) translateY(150px);
-    }
-    50% {
-        transform: translateX(-200px) translateY(-150px);
-    }
-    75% {
-        transform: translateX(150px) translateY(-200px);
-    }
-    100% {
-        transform: translateX(0) translateY(0);
-    }
-}
-
-/* Animation for floating stickers */
-@keyframes float {
-    0% {
-        transform: translateY(0) rotate(0deg);
-    }
-    50% {
-        transform: translateY(-20px) rotate(15deg);
-    }
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
-}
-
-/* Adjust floating stickers' positions and animation delays */
-.floating-stickers img:nth-child(1) {
-    top: 10%;
-    left: 15%;
-    animation-delay: 0s;
-}
-
-.floating-stickers img:nth-child(2) {
-    top: 40%;
-    right: 5%;
-    animation-delay: 2s;
-}
-
-.floating-stickers img:nth-child(3) {
-    top: 25%;
-    left: 50%;
-    animation-delay: 4s;
-}
-
-.floating-stickers img:nth-child(4) {
-    top: 60%;
-    right: 20%;
-    animation-delay: 6s;
-}
-
-.floating-stickers img:nth-child(5) {
-    top: 70%;
-    left: 30%;
-    animation-delay: 8s;
-}
-/* Sticker Gallery Section Styling */
-.sticker-gallery h3 {
-    font-size: 1.8rem;
-    color: #333;
-    margin-bottom: 1rem;
-    font-family: Arial, Helvetica, sans-serif; /* Normal readable font */
-}
-
-/* Update the text style for <p> in Sticker Gallery */
-.sticker-gallery p {
-    font-size: 1.1rem;
-    color: #666; /* Slightly darker text */
-    font-family: Arial, Helvetica, sans-serif; /* Normal readable font */
-}
-
-/* Update the font style for <h3> and <p> elements across the site */
-h3 {
-    font-family: Arial, Helvetica, sans-serif; /* Normal readable font */
-}
-
-p {
-    font-family: Arial, Helvetica, sans-serif; /* Normal readable font */
-}
-/* Glitch Effect on Comment Input */
-.glitch {
-    animation: glitch 0.3s infinite alternate;
-}
-
-@keyframes glitch {
-    0% { text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff; }
-    25% { text-shadow: -2px -2px 0px #ff00ff, 2px 2px 0px #00ffff; }
-    50% { text-shadow: 2px -2px 0px #ff00ff, -2px 2px 0px #00ffff; }
-    75% { text-shadow: -2px 2px 0px #ff00ff, 2px -2px 0px #00ffff; }
-    100% { text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff; }
-}
-/* Comment Styling */
-.comment {
-    background: #f7f7f7; /* Light background for better readability */
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    font-size: 1rem;
-    position: relative;
-    color: #333; /* Darker text for visibility */
-    font-family: Arial, Helvetica, sans-serif; /* Non-cursive, readable font */
-}
 /* Profile Section Styling */
 .profile-section {
     display: flex;
@@ -513,5 +298,79 @@ p {
     color: #666;
     max-width: 300px;
     text-align: center;
+}
+/* General Styling for Mockup Images */
+.grid-item img {
+    width: 100%; /* Maintain responsiveness */
+    max-width: 300px; /* Increase the size of the images */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    margin: 5px auto; /* Center the images with tighter spacing */
+    border: 2px solid #D8A7A0; /* Subtle border to match the gradient theme */
+    border-radius: 10px; /* Rounded edges for a cohesive look */
+    background-color: transparent; /* Remove background for cleaner visuals */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Add slight depth */
+    padding: 4px; /* Reduced padding for compact size */
+}
+
+/* Specific Styling for the Mockup Buttons */
+.mockup-btn img {
+    max-width: 120px; /* Reduce the width of the mockup button */
+    padding: 6px; /* Ensure compact button size */
+    background-color: #D8A7A0; /* Add the theme color */
+    border: 2px solid #D8A7A0; /* Match outline with theme color */
+    border-radius: 10px; /* Maintain rounded edges */
+    display: block;
+    margin: 5px auto; /* Align buttons nicely */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    cursor: pointer; /* Indicate interactivity */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect for the Mockup Buttons */
+.mockup-btn img:hover {
+    transform: scale(1.05); /* Interactive zoom */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+/* Styling for Mockup Buttons */
+.mockup-btn img {
+    width: 100%; /* Maintain width responsiveness */
+    max-width: 300px; /* Same maximum width */
+    height: 50px; /* Compact height */
+    object-fit: cover; /* Ensure image fits neatly */
+    display: block;
+    margin: 5px auto; /* Center-align the mockups */
+    background-color: #D8A7A0; /* Themed background color */
+    padding: 4px; /* Maintain compact padding */
+    border-radius: 40px; /* Increase rounding for a smoother look */
+    border: 2px solid #D8A7A0; /* Consistent border style */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle depth */
+    cursor: pointer; /* Indicate interactivity */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect for Mockup Buttons */
+.mockup-btn img:hover {
+    transform: scale(1.05); /* Interactive zoom effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+.comment-box .image-box img {
+    width: 145px; /* Adjust size as needed */
+    height: 50px; /* Keeps aspect ratio */
+}
+.hub-body {
+    background-image: url('../vtuber/properties/mokups/mywall.png'); /* Update the path */
+    background-size: cover; /* Makes sure the image covers the entire page */
+    background-position: center; /* Centers the background */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Keeps the background fixed while scrolling */
+    color: white; /* Adjust text color for better readability */
+}
+header .image-box img {
+    width: 100%;  /* Adjust width as needed */
+    max-width: 500px;  /* Set a max-width to control size */
+    height: auto;  /* Maintain aspect ratio */
+    display: block; /* Ensure proper alignment */
+    margin: 0 auto; /* Center the image */
 }
 
