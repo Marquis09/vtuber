@@ -29,6 +29,12 @@ document.addEventListener('DOMContentLoaded', function () {
             document.body.classList.remove('glitch-new'); // Remove glitch effect
         }, 600); // Time must match the glitch animation duration
 
+        // Apply shake effect to the theme button
+        themeButton.classList.add('shake');
+        setTimeout(() => {
+            themeButton.classList.remove('shake');
+        }, 500); // Time must match the shake animation duration
+
         document.body.classList.toggle('glitch-mode', darkMode);
         if (darkMode) {
             document.body.style.background = colors[4];
@@ -83,48 +89,27 @@ document.addEventListener('DOMContentLoaded', function () {
     const fakeUsernames = ["VTuberFan101", "AnonymousGamer", "PixelatedDream", "StreamerProX", "User_Zero"];
     const sampleComments = [
         "You're doing amazing! 😄",
-    "I love your streams! Keep it up! 🌟",
-    "What games are next? 😊",
-    "I can’t get enough of your content! 🔥",
-    "Your streams make my day better! 💖",
-    "Your energy is contagious, love it! 🙌",
-    "More cat content, please! 🐱",
-    "Can you do a Q&A session soon? 🤔",
-    "Your art is amazing! Keep going! 🎨",
-    "Your sense of humor is on point! 😂",
-    "This is the content I needed today. Thank you! 🌈",
-    "More collaborations with other VTubers, please! 🤝",
-    "Loved the recent game choice, more of that! 🎮",
-    "Are you ever going to stream during the day? 🌞",
-    "I’ve been following you since your first stream, keep it up! 👏",
-    "You’re my new favorite VTuber! 🏆",
-    "The vibe today was perfect, really calming. ✨",
-    "I’m here for the lore and story, love it! 📖",
-    "This stream is the highlight of my week! 🎉",
-    "I think your streams could be a bit more interactive. 💬",
-    
-    // Negative (Bad) Comments
-    "The quality is terrible today. 😡",
-    "Can you stop talking so much? It's annoying. 🙄",
-    "I expected more from this stream... 😔",
-    "The audio is awful, can't hear anything clearly. 🎧",
-    "You missed so many good moments in the game. 🤦‍♂️",
-    "This was a waste of time. I’m leaving. 👋",
-    "Can you play something other than this? This is painful. 😫",
-    "Why is everything so laggy? 😩",
-    "Your mic keeps cutting out... Can you fix it? 🎤",
-    "Not sure why people like this, it's so uninteresting. 😒",
-    "The pacing is so slow, I almost fell asleep. 😴",
-    "Can you improve your gameplay, it’s frustrating to watch. 😬",
-    "I don’t get the hype around your streams. 🤔",
-    "This is the worst content I've ever seen. 😡",
-    "Your energy today is so off. 😕",
-    "Not impressed, you could do so much better. 😔",
-    "Why do you keep making the same mistakes? It's annoying. 😑",
-    "This game is so outdated, why are you still playing it? 😕",
-    "You need to interact with the chat more, it feels so one-sided. 👎"
-
+        "I love your streams! Keep it up! 🌟",
+        "What games are next? 😊",
+        "I can’t get enough of your content! 🔥",
+        "Your streams make my day better! 💖",
+        "Your energy is contagious, love it! 🙌",
+        "More cat content, please! 🐱",
+        "Can you do a Q&A session soon? 🤔",
+        "Your art is amazing! Keep going! 🎨",
+        "Your sense of humor is on point! 😂",
+        "This is the content I needed today. Thank you! 🌈",
+        "More collaborations with other VTubers, please! 🤝",
+        "Loved the recent game choice, more of that! 🎮",
+        "Are you ever going to stream during the day? 🌞",
+        "I’ve been following you since your first stream, keep it up! 👏",
+        "You’re my new favorite VTuber! 🏆",
+        "The vibe today was perfect, really calming. ✨",
+        "I’m here for the lore and story, love it! 📖",
+        "This stream is the highlight of my week! 🎉",
+        "I think your streams could be a bit more interactive. 💬",
     ];
+
     let commentIndex = 0;
 
     // Glitch effect for the comment input box

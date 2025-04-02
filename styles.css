@@ -1,3 +1,8 @@
+/* Welcome and Explore Sentences - Make them black */
+h3, h4 {
+    color: #727171; /* Black color */
+}
+
 /* General Body Styling */
 body {
     font-family: 'Pacifico', sans-serif; /* Changed to Pacifico font */
@@ -374,3 +379,209 @@ header .image-box img {
     margin: 0 auto; /* Center the image */
 }
 
+/* HUB CONTAINER - Keep layout unchanged */
+.hub-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(300px, 1fr)); /* Increased box size */
+    gap: 15px; /* Increased spacing */
+    padding: 25px;
+    width: 100%;
+    max-width: 850px; /* Expanded max width */
+    justify-content: start;
+    align-items: start;
+    margin-left: 0px; /* Adjusted margin */
+}
+
+/* GRID CONTAINER - Moves each grid container */
+.grid-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    margin-left: -200px;
+}
+
+/* OUTER BOX - Increased size slightly */
+.outer-box {
+    position: relative;
+    width: 1250px; /* Further increased box size */
+    padding: 140px; /* Increased padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: -100px;
+}
+.grid-container {
+    margin-top: -150px; /* Moves boxes up */
+}
+
+/* OUTER BOX IMAGE */
+.outer-box img {
+    width: 600%;
+    height: auto;
+    display: block;
+}
+
+/* CONTENT INSIDE OUTER BOX */
+.content {
+    position: absolute;
+    top: 44%;
+    left: 102%;
+    width: 130%; /* Expanded content width */
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    transform: translate(-50%, -50%);
+}
+.social-media {
+    margin-top: -190px; /* Move up */
+    margin-left: 125px; /* Move right */
+    margin-right: 50px; /* Move left */
+    margin-bottom: 0px; /* Move down */
+}
+.center-image {
+    margin-top: -40px; /* Move up */
+    margin-left: 100px; /* Move right */
+    margin-right: 100px; /* Move left */
+    margin-bottom: -260px; /* Move down */
+}
+
+
+
+
+
+/* FIX ASSET SIZES */
+.social-media img {
+    max-width: 60%; /* Increased size */
+    height: auto;
+}
+
+.center-image img {
+    max-width: 80%; /* Adjusted scaling */
+    height: auto;
+}
+
+.buttons img {
+    max-width: 20%; /* Increased button size */
+    height: auto;
+}
+
+/* RESPONSIVE FIXES */
+@media (max-width: 1024px) {
+    .outer-box {
+        width: 1150px; /* Adjusted for medium screens */
+    }
+
+    .content {
+        width: 95%;
+    }
+}
+
+@media (max-width: 768px) {
+    .outer-box {
+        width: 1050px; /* Adjusted for smaller screens */
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    .social-media img,
+    .center-image img,
+    .buttons img {
+        max-width: 85%;
+    }
+}
+.hub-container {
+    height: 450px; /* Adjust to desired height */
+    overflow: 400px; /* Ensures content remains accessible if it exceeds height */
+}
+/* Button Styling */
+.watch-now-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-block;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.watch-now-btn img {
+    width: 100%;  /* Ensures the image fits within the button container */
+    max-width: 200px;  /* Optional: Adjust this based on your layout */
+    height: auto;
+}
+
+.watch-now-btn:hover {
+    transform: scale(1.05);  /* Slight zoom effect on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.watch-now-btn:focus {
+    outline: none;  /* Remove focus outline */
+}
+
+/* Optional: Adding a subtle effect when the button is clicked */
+.watch-now-btn:active {
+    transform: scale(0.98);  /* Slight shrink effect when clicked */
+}
+/* Extended Glitch Effect */
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+        clip-path: inset(0 0 0 0);
+    }
+    10% {
+        transform: translate(-5px, -5px);
+        clip-path: inset(10% 0 15% 0);
+    }
+    20% {
+        transform: translate(5px, 5px);
+        clip-path: inset(5% 0 10% 0);
+    }
+    30% {
+        transform: translate(-8px, 8px);
+        clip-path: inset(10% 0 5% 0);
+    }
+    40% {
+        transform: translate(4px, -4px);
+        clip-path: inset(8% 0 12% 0);
+    }
+    50% {
+        transform: translate(-5px, 5px);
+        clip-path: inset(12% 0 5% 0);
+    }
+    60% {
+        transform: translate(6px, -6px);
+        clip-path: inset(5% 0 15% 0);
+    }
+    70% {
+        transform: translate(-7px, 7px);
+        clip-path: inset(15% 0 10% 0);
+    }
+    80% {
+        transform: translate(3px, -3px);
+        clip-path: inset(10% 0 5% 0);
+    }
+    90% {
+        transform: translate(-4px, 4px);
+        clip-path: inset(5% 0 10% 0);
+    }
+    100% {
+        transform: translate(0);
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+.glitch {
+    animation: glitch 10s linear infinite; /* Extended duration */
+}
+
+/* One-time 10-second glitch effect */
+.glitch-new {
+    animation: glitch 10s linear 1; /* Runs for exactly 10 seconds */
+}
