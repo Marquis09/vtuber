@@ -529,47 +529,27 @@ header .image-box img {
 .watch-now-btn:active {
     transform: scale(0.98);  /* Slight shrink effect when clicked */
 }
-/* Extended Glitch Effect */
+/* Glitch effect */
 @keyframes glitch {
     0% {
         transform: translate(0);
         clip-path: inset(0 0 0 0);
     }
-    10% {
-        transform: translate(-5px, -5px);
-        clip-path: inset(10% 0 15% 0);
-    }
     20% {
-        transform: translate(5px, 5px);
-        clip-path: inset(5% 0 10% 0);
-    }
-    30% {
-        transform: translate(-8px, 8px);
-        clip-path: inset(10% 0 5% 0);
+        transform: translate(-5px, -5px);
+        clip-path: inset(10% 0 10% 0);
     }
     40% {
-        transform: translate(4px, -4px);
-        clip-path: inset(8% 0 12% 0);
-    }
-    50% {
-        transform: translate(-5px, 5px);
-        clip-path: inset(12% 0 5% 0);
+        transform: translate(5px, 5px);
+        clip-path: inset(5% 0 5% 0);
     }
     60% {
-        transform: translate(6px, -6px);
-        clip-path: inset(5% 0 15% 0);
-    }
-    70% {
-        transform: translate(-7px, 7px);
-        clip-path: inset(15% 0 10% 0);
+        transform: translate(-5px, -5px);
+        clip-path: inset(10% 0 10% 0);
     }
     80% {
-        transform: translate(3px, -3px);
-        clip-path: inset(10% 0 5% 0);
-    }
-    90% {
-        transform: translate(-4px, 4px);
-        clip-path: inset(5% 0 10% 0);
+        transform: translate(5px, 5px);
+        clip-path: inset(5% 0 5% 0);
     }
     100% {
         transform: translate(0);
@@ -578,10 +558,10 @@ header .image-box img {
 }
 
 .glitch {
-    animation: glitch 10s linear infinite; /* Extended duration */
+    animation: glitch 1.5s linear infinite; /* Change 0.6s to 1.5s */
 }
 
-/* One-time 10-second glitch effect */
+/* Glitch effect when toggling theme */
 .glitch-new {
-    animation: glitch 10s linear 1; /* Runs for exactly 10 seconds */
+    animation: glitch 1.5s linear 1; /* Change 0.6s to 1.5s */
 }
