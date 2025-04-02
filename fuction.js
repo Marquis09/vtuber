@@ -17,19 +17,97 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let darkMode = false;
     const colors = ["#855A7D", "#A69282", "#75497A", "#584139", "#242232"];
-    
+
+    // Glitch Effect Variables
+    let pixelatedGlitchActive = false;
+    let backgroundFlickerActive = false;
+    let filterGlitchActive = false;
+    let textGlitchActive = false;
+
+    // Pixelated Glitch Effect
+    let pixelatedGlitchDiv;
+    function togglePixelatedGlitch() {
+        if (pixelatedGlitchActive) {
+            pixelatedGlitchDiv.remove();
+        } else {
+            pixelatedGlitchDiv = document.createElement("div");
+            pixelatedGlitchDiv.style.position = "fixed";
+            pixelatedGlitchDiv.style.top = "0";
+            pixelatedGlitchDiv.style.left = "0";
+            pixelatedGlitchDiv.style.width = "100%";
+            pixelatedGlitchDiv.style.height = "100%";
+            pixelatedGlitchDiv.style.pointerEvents = "none";
+            pixelatedGlitchDiv.style.backgroundImage = "url('https://www.transparenttextures.com/patterns/black-linen.png')";
+            pixelatedGlitchDiv.style.backgroundSize = "20px 20px";
+            pixelatedGlitchDiv.style.animation = "pixelate 0.2s infinite";
+            document.body.appendChild(pixelatedGlitchDiv);
+        }
+        pixelatedGlitchActive = !pixelatedGlitchActive;
+    }
+
+    // Background Flicker Effect
+    let backgroundFlickerInterval;
+    function toggleBackgroundFlicker() {
+        if (backgroundFlickerActive) {
+            clearInterval(backgroundFlickerInterval);
+        } else {
+            backgroundFlickerInterval = setInterval(() => {
+                document.body.style.backgroundColor = randomColor();
+            }, 100); // Change every 100ms
+        }
+        backgroundFlickerActive = !backgroundFlickerActive;
+    }
+
+    function randomColor() {
+        return `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+    }
+
+    // Glitching Text Effect
+    function toggleTextGlitch() {
+        const elements = document.querySelectorAll('.glitch-text');
+        elements.forEach(element => {
+            if (textGlitchActive) {
+                element.classList.remove('glitching-text');
+            } else {
+                element.classList.add('glitching-text');
+            }
+        });
+        textGlitchActive = !textGlitchActive;
+    }
+
+    // Glitching Filter Effect
+    function toggleFilterGlitch() {
+        if (filterGlitchActive) {
+            document.body.style.filter = ''; // Reset the filter
+        } else {
+            document.body.style.filter = 'blur(3px) saturate(1.2) contrast(1.5)';
+            document.body.style.transition = 'filter 0.1s ease';
+        }
+        filterGlitchActive = !filterGlitchActive;
+    }
+
+    // Shaking Glitch Effect (on theme button and other elements)
+    function toggleShakingGlitch() {
+        // Apply shaking glitch to multiple elements
+        const elementsToShake = [themeButton, document.body, document.querySelector('header'), document.querySelector('.hub-container')];
+        elementsToShake.forEach(element => {
+            if (element) {
+                element.classList.toggle('shake-glitch');
+            }
+        });
+    }
+
     themeButton.addEventListener('click', function () {
         darkMode = !darkMode;
         
         // Apply new glitch effect
         document.body.classList.add('glitch-new'); // Add glitch effect to body
-        
         // Remove glitch effect after animation completes (0.6s)
         setTimeout(() => {
             document.body.classList.remove('glitch-new'); // Remove glitch effect
         }, 600); // Time must match the glitch animation duration
 
-        // Apply shake effect to the theme button
+        // Apply shake effect to the theme button and other elements
         themeButton.classList.add('shake');
         setTimeout(() => {
             themeButton.classList.remove('shake');
@@ -55,10 +133,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 item.style.color = '';
             });
         }
+
+        // Toggle all glitch effects
+        togglePixelatedGlitch();
+        toggleBackgroundFlicker();
+        toggleTextGlitch();
+        toggleFilterGlitch();
+        toggleShakingGlitch(); // Add the shaking glitch to multiple elements
     });
 
     // Existing Code...
-    
+
     const loginForm = document.getElementById('login-form');
     if (loginForm) {
         loginForm.addEventListener('submit', function (e) {
@@ -95,19 +180,19 @@ document.addEventListener('DOMContentLoaded', function () {
         "Your streams make my day better! 💖",
         "Your energy is contagious, love it! 🙌",
         "More cat content, please! 🐱",
-        "Can you do a Q&A session soon? 🤔",
+        "Why do you always talk so much? It's annoying. 🙉",
         "Your art is amazing! Keep going! 🎨",
         "Your sense of humor is on point! 😂",
-        "This is the content I needed today. Thank you! 🌈",
+        "I just don't see why anyone would follow you, sorry. 🤷‍♀️ ",
         "More collaborations with other VTubers, please! 🤝",
-        "Loved the recent game choice, more of that! 🎮",
+        "Your streams are so predictable, it's boring. 💤",
         "Are you ever going to stream during the day? 🌞",
-        "I’ve been following you since your first stream, keep it up! 👏",
-        "You’re my new favorite VTuber! 🏆",
-        "The vibe today was perfect, really calming. ✨",
-        "I’m here for the lore and story, love it! 📖",
-        "This stream is the highlight of my week! 🎉",
-        "I think your streams could be a bit more interactive. 💬",
+        "Can you please stop playing the same game every day? 🙄🎮",
+        "This stream is just a waste of time, no quality here. 🕒🚫",
+        "Are you even trying? This content is awful. 😕",
+        "Why do you even bother streaming? You're not good at this. 🙄",
+        "I don't get the hype, your content is overrated. 🤷‍♂️",
+        "You're not funny at all, maybe try harder. 😒",
     ];
 
     let commentIndex = 0;

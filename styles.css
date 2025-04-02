@@ -46,7 +46,7 @@ header {
     font-size: 3rem; /* Increased size for better visibility */
     font-family: 'Pacifico', sans-serif; /* Cute, handwritten, girly style */
     font-weight: bold;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 0, 255, 0.6); /* Glow effect */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5), 0 0 25px rgba(83, 82, 83, 0.6); /* Glow effect */
     letter-spacing: 2px;
 }
 
@@ -89,7 +89,7 @@ header {
     justify-content: center;
     width: 100%;
     max-width: 400px;
-    background: linear-gradient(135deg, #D1B79A, #F2C8B2); /* Subtle beige gradient */
+    background: linear-gradient(135deg, #8f8f8f, #727171); /* Subtle beige gradient */
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
@@ -100,14 +100,14 @@ header {
 .login-box h2 {
     font-weight: 600;
     font-size: 1.8rem;
-    color: #4A4A4A; /* Darker text */
+    color: #ffffff; /* Darker text */
     margin-bottom: 1rem;
 }
 
 .intro-text {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
-    color: #666; /* Slightly darker intro text */
+    color: #ffffff; /* Slightly darker intro text */
 }
 
 /* Input Fields */
@@ -123,17 +123,17 @@ input {
 }
 
 input:focus {
-    border-color: #F2C8B2; /* Light focus border */
+    border-color: #bdbbba; /* Light focus border */
     outline: none;
     background-color: #e0e0e0;
 }
 
 /* Button Styling */
 button {
-    background: linear-gradient(90deg, #D8A7A0, #F2C8B2); /* Softer gradient for standard mode */
+    background: linear-gradient(90deg, #3d3d3d, #000000); /* Softer gradient for standard mode */
     padding: 12px;
     border: none;
-    color: #4A4A4A; /* Darker text for better contrast */
+    color: #ffffff; /* Darker text for better contrast */
     cursor: pointer;
     width: 100%;
     max-width: 200px;
@@ -145,26 +145,26 @@ button {
 }
 
 button:hover {
-    background: linear-gradient(90deg, #F3C1A2, #F9DFDE); /* Mellow hover effect */
+    background: linear-gradient(90deg, #cfcece, #eba3ee); /* Mellow hover effect */
     transform: scale(1.05);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Footer Text */
 .footer-text {
-    color: #666;
+    color: #ffffff;
     font-size: 0.9rem;
     margin-top: 1rem;
 }
 
 .footer-text span {
-    color: #666; /* Soft accent color */
+    color: #39393a; /* Soft accent color */
     cursor: pointer;
     text-decoration: underline;
 }
 
 .footer-text span:hover {
-    color: #006aff; /* Hover effect */
+    color: #0004f1; /* Hover effect */
 }
 
 /* Hub Container Styling */
@@ -565,3 +565,72 @@ header .image-box img {
 .glitch-new {
     animation: glitch 1.5s linear 1; /* Change 0.6s to 1.5s */
 }
+
+    body.login-body {
+        background: linear-gradient(to bottom right, #ffffff, #ffffff);
+        font-family: 'Pacifico', sans-serif'
+    }
+    
+    .banner {
+        background-color: #414141;
+        color: white;
+        text-align: center;
+        font-size: 20px;
+        padding: 15px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #000000, #727171); /* Subtle beige gradient */
+    }
+   /* Pixelated Glitch Effect */
+@keyframes pixelate {
+    0% { background-position: 0 0; }
+    50% { background-position: 10px 10px; }
+    100% { background-position: 0 0; }
+}
+
+/* Glitching Text Effect */
+@keyframes glitch-text {
+    0% { text-shadow: 1px 1px 0 red, -1px -1px 0 blue; }
+    50% { text-shadow: -1px -1px 0 red, 1px 1px 0 blue; }
+    100% { text-shadow: 1px 1px 0 red, -1px -1px 0 blue; }
+}
+
+.glitching-text {
+    animation: glitch-text 0.3s infinite alternate;
+}
+
+/* Border Glitch */
+@keyframes glitch-border {
+    0% { border: 2px solid red; }
+    50% { border: 2px solid blue; }
+    100% { border: 2px solid green; }
+}
+
+.glitch-border-animation {
+    animation: glitch-border 0.5s infinite alternate;
+}
+/* Shaking Glitch Effect */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.shake-glitch {
+    animation: shake 0.1s infinite;
+}
+/* Shaking Glitch Effect */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.shake-glitch {
+    animation: shake 0.1s infinite;
+}
+
+
