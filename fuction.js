@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Theme Switcher
     const themeButton = document.createElement('button');
-    themeButton.innerText = 'Switch Theme';
+    themeButton.innerText = 'Record 🔴';
     themeButton.id = 'theme-switcher';
     themeButton.style.position = 'fixed';
     themeButton.style.top = '20px';
