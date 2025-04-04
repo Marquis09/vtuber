@@ -251,4 +251,22 @@ document.addEventListener('DOMContentLoaded', function () {
             window.location.href = 'index.html';
         });
     }
+
+    // Floating Stickers (added at end)
+    const stickerContainer = document.createElement('div');
+    stickerContainer.className = 'sticker-container';
+    document.body.appendChild(stickerContainer);
+
+    const NUM_STICKERS = 30;
+    const STICKER_SRC = 'cute.png'; // Replace with your actual image path
+
+    for (let i = 0; i < NUM_STICKERS; i++) {
+        const sticker = document.createElement('img');
+        sticker.src = STICKER_SRC;
+        sticker.classList.add('floating-sticker');
+        sticker.style.left = `${Math.random() * 100}%`;
+        sticker.style.animationDelay = `${Math.random() * 10}s`;
+        sticker.style.animationDuration = `${10 + Math.random() * 10}s`;
+        stickerContainer.appendChild(sticker);
+    }
 });

@@ -632,5 +632,135 @@ header .image-box img {
 .shake-glitch {
     animation: shake 0.1s infinite;
 }
+/* Container for all cards */
+.hub-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4rem;
+    padding: 2rem;
+    background-color: #f9f9f9;
+  }
+  
+  /* Wrapper around each card (outer box frame + content) */
+  .card-wrapper {
+    position: relative;
+    width: 300px;
+    height: 460px;
+  }
+  
+  /* Outer mockup box (background frame image) */
+  .outer-box {
+    position: absolute;
+    top: -30%;
+    left: -50%;
+    width: 122%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    pointer-events: none; /* Makes sure clicks go to the button/link */
+  }
+  
+  /* Card content that sits on top of the mockup */
+  .card-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+  
+  /* Title mockup image */
+  .card-title {
+    width: 80%;
+    margin-bottom: 1rem;
+    
+  }
+  
+  /* Center image */
+  .card-image img {
+    width: 75%;
+    height: auto;
+    margin-bottom: 1rem;
 
+  }
+  
+  /* 3 smaller mockups under the center image */
+  .card-mockups {
+    display: flex;
+    gap: 0.3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .card-mockups img {
+    width: 80px;
+    height: auto;
+  }
+  
+  /* Bottom button link */
+  .card-button {
+    margin-top: auto;
+    padding: 0.7rem 1.7rem;
+    background-color: #D8A7A0;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    border-radius: 15px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  .card-button:hover {
+    background-color: #7b377e;
+  }
+  .card-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    top: -7%;
+    padding: 1rem;
+    box-sizing: border-box;
+  
+    /* 🔄 Shift everything to the left */
+    transform: translateX(-79px); /* adjust this value as needed */
+  }
+  
+  .sticker-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    overflow: hidden;
+}
 
+.floating-sticker {
+    position: absolute;
+    width: 80px; /* Adjust size if needed */
+    opacity: 0;
+    animation-name: floatStickers;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 5s; /* Adjust duration as needed */
+}
+
+@keyframes floatStickers {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-120vh) rotate(720deg);
+        opacity: 0;
+    }
+}
