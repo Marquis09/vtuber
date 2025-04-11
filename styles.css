@@ -764,3 +764,78 @@ header .image-box img {
         opacity: 0;
     }
 }
+/* === Background & Header === */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('../vtuber/properties/mokups/mywall.png'); /* Replace with your actual image */
+    background-size: 115%;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #000000;
+  }
+  
+  .merch-header {
+    text-align: center;
+    padding: 50px 20px 30px;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent overlay for contrast */
+  }
+  
+  .merch-header h1 {
+    font-size: 3rem;
+    margin: 0;
+  }
+  
+  .merch-header p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+  
+  /* === Card Styles === */
+  .merch-card:hover .card-image img {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }
+  
+  .card-image img {
+    transition: transform 0.3s ease;
+  }
+  
+  .product-info {
+    margin-top: 10px;
+  }
+  
+  .product-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+  }
+  
+  .product-price {
+    color: #000000;
+    font-size: 1rem;
+  }
+
+  
+   /* === button === */
+   .back-button-container {
+    text-align: left;
+    margin: 20px 40px;
+  }
+  
+  .back-button {
+    background-color: #faaeae;
+    color: #D8A7A0;
+    border: 2px solid rgb(184, 121, 121);
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .back-button:hover {
+    background-color: #ffffff;
+    transform: scale(1.05);
+  }
+  
