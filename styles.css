@@ -840,53 +840,172 @@ body {
   }
 
 /* =====================================================
-   RESPONSIVE LAYOUT  (paste at the very bottom of styles.css)
+   RESPONSIVE LAYOUT v2  (paste at the very bottom of styles.css)
    ===================================================== */
 
-/* Stop anything from pushing the page wider than the screen */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { max-width: 100%; overflow-x: hidden; }
 img { max-width: 100%; }
 
-/* Fix the page background so it scales instead of being 115% wide */
-body {
-    background-size: cover;
-    background-attachment: fixed;
+/* ---------- Page + background ---------- */
+/* The wall image lives on a fixed layer behind the page. This works on phones
+   (background-attachment: fixed does not) and never stretches on long pages. */
+body:not(.login-body) {
+    background: #efc9c0;
+    padding: 0 clamp(12px, 4vw, 32px) 24px;
+    justify-content: flex-start;
 }
+body:not(.login-body)::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: url('../vtuber/properties/mokups/mywall.png') center / cover no-repeat;
+}
+body.glitch-mode::before { display: none; }   /* so the dark mode colour still shows */
 
-/* ---------- Header / hero ---------- */
+/* ---------- Hero ---------- */
 header {
+    background: none;
+    box-shadow: none;
+    padding: 56px 0 0;
+    margin: 0 0 16px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 560px;
     justify-content: center;
 }
 header .image-box { width: 100%; }
-.profile-info { text-align: center; width: 100%; padding: 0 10px; }
-.profile-info h4 { margin-left: 0 !important; }   /* overrides the inline 190px */
-.profile-info h3 { font-size: clamp(1.1rem, 4vw, 1.8rem); }
-
-.profile-section { flex-wrap: wrap; }
-
-/* Theme button: keep it above everything */
-#theme-switcher { z-index: 10000; }
-
-/* ---------- Card grid (hub + merch) ---------- */
-.hub-container {
-    height: auto;                 /* removes the fixed 450px height */
-    max-width: 1200px;
+header .mockup-btn img {
     width: 100%;
+    max-width: 440px;
+    height: auto;
+    aspect-ratio: 3840 / 1700;        /* crops the empty margin around the logo */
+    object-fit: cover;
+    object-position: 50% 48%;
+    background: none;                 /* removes the pink pill behind the logo */
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+    filter: drop-shadow(0 6px 10px rgba(80, 40, 40, 0.35));
+    margin: 0 auto;
+}
+header .mockup-btn img:hover { transform: none; box-shadow: none; }
+
+/* Tagline + welcome text: readable cream cards instead of grey text on the wall */
+.profile-info,
+body.hub-body > h3,
+body.hub-body > h4 {
+    width: 100%;
+    max-width: 680px;
+    text-align: center;
+    background: rgba(255, 248, 240, 0.88);
+    border-radius: 18px;
+    padding: 12px 18px;
+    margin: 0 0 12px;
+    color: #4a2f2a;
+}
+.profile-info { padding: 14px 18px 10px; }
+.profile-info h3 { margin: 0 0 8px; font-size: clamp(1.05rem, 3.6vw, 1.6rem); color: #4a2f2a; }
+.profile-info h4 { margin: 0 !important; font-size: clamp(0.85rem, 2.8vw, 1rem); font-weight: 600; color: #6b5048; }
+body.hub-body > h3 { font-size: clamp(1.1rem, 3.6vw, 1.5rem); margin-top: 8px; margin-bottom: 0; border-radius: 18px 18px 0 0; padding-bottom: 4px; }
+body.hub-body > h4 { font-size: clamp(0.85rem, 2.8vw, 1rem); font-weight: 600; border-radius: 0 0 18px 18px; margin-bottom: 20px; padding-top: 0; }
+
+/* ---------- Avatar + logout ---------- */
+nav { width: 100%; }
+.profile-section { margin: 0 0 20px; padding: 0; }
+.profile-section ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-    flex-direction: row;          /* an older rule made this a column */
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+.profile-picture img { width: 96px; height: 96px; background: #fff7ef; }
+.profile-section .image-box { margin: 0; }
+
+/* Pill buttons (Logout / Submit): the PNGs have a lot of empty space around the
+   handwriting, so we zoom in on the words inside a fixed-size pill. */
+.profile-section .mockup-btn,
+.comment-box .mockup-btn {
+    --w: 130px;
+    --h: 46px;
+    position: relative;
+    display: block;
+    width: var(--w);
+    height: var(--h);
+    overflow: hidden;
+    border-radius: 999px;
+    background: #D8A7A0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.profile-section .mockup-btn:hover,
+.comment-box .mockup-btn:hover { transform: scale(1.05); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); }
+.profile-section .mockup-btn img,
+.comment-box .mockup-btn img {
+    position: absolute;
+    max-width: none;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    transform: none;
+}
+.profile-section .mockup-btn img {          /* Logout */
+    width: calc(var(--w) * 1.85);
+    left: calc(var(--w) * -0.3621);
+    top: calc(var(--h) * 0.5 - var(--w) * 0.4943);
+}
+.comment-box .mockup-btn img {              /* Submit */
+    width: calc(var(--w) * 1.8);
+    left: calc(var(--w) * -0.436);
+    top: calc(var(--h) * 0.5 - var(--w) * 0.4708);
+}
+
+/* ---------- Theme button ---------- */
+#theme-switcher { z-index: 10000; }
+@media (max-width: 899px) {
+    /* move it to the bottom corner so it never covers the logo or cards */
+    #theme-switcher {
+        top: auto !important;
+        bottom: 14px !important;
+        right: 14px !important;
+        width: auto !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 9px 14px !important;
+        font-size: 0.9rem !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    }
+}
+
+/* ---------- Card panel ---------- */
+.hub-container {
+    height: auto;
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    gap: clamp(1rem, 3vw, 2.5rem);
-    padding: clamp(1rem, 3vw, 2rem);
+    gap: clamp(0.75rem, 3vw, 2.5rem);
+    padding: clamp(14px, 3vw, 32px);
     margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
+/* the <br> tags between the rows add dead space */
+body > br { display: none; }
+.hub-container ~ .hub-container { margin-top: 20px; }
 
-/* Each card scales with its own width. The frame and everything inside
-   is sized in "cqw" (1cqw = 1% of the card's width), so it all shrinks together. */
+/* Each card scales with its own width (1cqw = 1% of the card width) */
 .card-wrapper {
     container-type: inline-size;
     position: relative;
@@ -896,100 +1015,95 @@ header .image-box { width: 100%; }
     height: auto;
     aspect-ratio: 1876 / 2160;
 }
-
 .outer-box {
     position: absolute;
     inset: 0;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
     object-fit: contain;
 }
-
 .card-content {
     position: absolute;
     inset: 0;
     top: 0;
     transform: none;
     height: 100%;
-    padding: 2.5cqw 16cqw 12cqw;
+    padding: 3cqw 15cqw 12cqw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     gap: 3cqw;
 }
-
-/* Crop the big transparent area of the title image so only the label shows */
 .card-title {
     width: 100%;
     aspect-ratio: 3840 / 600;
     object-fit: cover;
     object-position: 50% 48%;
-    margin: 0 0 2cqw;
+    margin: 0 0 3cqw;
 }
-
 .card-image { width: 100%; display: flex; justify-content: center; }
-.card-image img {
-    width: 62cqw;
-    height: auto;
-    margin: 0;
-}
-
+.card-image img { width: 66cqw; height: auto; margin: 0; border-radius: 4px; }
 .card-button {
     margin-top: auto;
-    padding: 2.5cqw 7cqw;
-    font-size: clamp(0.8rem, 5cqw, 1.05rem);
+    padding: 2.6cqw 8cqw;
+    font-size: clamp(0.85rem, 5.2cqw, 1.05rem);
     text-align: center;
+    white-space: nowrap;
 }
-.card-content br { display: none; }   /* hub.html has a <br> between the two social buttons */
-
-.product-info { margin-top: 0; text-align: center; }
-.product-name { font-size: clamp(0.8rem, 5.2cqw, 1.1rem); margin-bottom: 0; }
+.card-content br { display: none; }
+.card-content:has(.card-button ~ .card-button) .card-image img { width: 54cqw; }
+.card-content:has(.card-button ~ .card-button) { gap: 2cqw; }
+.card-content .card-button ~ .card-button { margin-top: 0; }
+.product-info { margin: 0; text-align: center; }
+.product-name { font-size: clamp(0.8rem, 5.4cqw, 1.1rem); margin: 0; }
 
 /* ---------- Comments ---------- */
-.comments { height: auto; min-height: 220px; max-height: 360px; width: 100%; }
-.comment-box { gap: 10px; align-items: center; flex-wrap: wrap; }
-#new-comment { min-width: 0; }
+.comments { height: auto; min-height: 200px; max-height: 380px; width: 100%; max-width: 600px; margin: 24px auto 0; color: #333; }
+.comments h3 { color: #4a2f2a; margin-top: 0; }
+.comment-box { gap: 10px; align-items: center; }
+#new-comment { min-width: 0; margin: 0; }
 .comment-box .image-box { flex: 0 0 auto; }
-.comment-box .image-box img { max-width: 100%; }
+
+/* ---------- Footer ---------- */
+body:not(.login-body) > section:last-of-type { text-align: center; }
+body:not(.login-body) > section:last-of-type h3 {
+    background: rgba(255, 248, 240, 0.88);
+    color: #4a2f2a;
+    border-radius: 14px;
+    padding: 10px 16px;
+    font-size: clamp(0.72rem, 2.6vw, 0.95rem);
+    margin: 20px 0 0;
+}
 
 /* ---------- Merch page ---------- */
-.merch-header h1 { font-size: clamp(1.6rem, 7vw, 3rem); color: #fff; }
-.back-button-container { margin: 20px; }
+.merch-header { width: 100%; margin: 0; border-radius: 0 0 20px 20px; padding: 36px 16px 22px; }
+.merch-header h1 { color: #fff; font-size: clamp(1.5rem, 6vw, 2.6rem); }
+.back-button-container { width: 100%; max-width: 1100px; margin: 16px auto; text-align: left; }
+.back-button-container .card-button { display: inline-block; margin: 0; padding: 10px 22px; }
 
 /* ---------- Login page ---------- */
 .login-container { width: 100%; }
-.banner { padding: clamp(20px, 5vw, 50px); }
+.banner { padding: clamp(20px, 5vw, 40px); }
 .banner-text { font-size: clamp(1.6rem, 7vw, 3rem); letter-spacing: 1px; }
 
 /* ---------- Floating stickers ---------- */
-.floating-sticker { width: clamp(40px, 8vw, 80px); }
-
-/* ---------- Tablet ---------- */
-@media (max-width: 900px) {
-    body { padding: 12px; }
-    header { padding: 12px; margin-bottom: 16px; }
-}
+.floating-sticker { width: clamp(36px, 8vw, 80px); }
 
 /* ---------- Phone ---------- */
 @media (max-width: 600px) {
-    body {
-        padding: 8px;
-        background-attachment: scroll;   /* "fixed" backgrounds are glitchy on phones */
-    }
-    .card-wrapper { flex-basis: min(300px, 86vw); max-width: min(300px, 86vw); }
-    .hub-container { padding: 1rem 0.5rem; border-radius: 12px; }
+    body:not(.login-body) { padding-bottom: 80px; }   /* room for the floating Record button */
+    .profile-picture img { width: 84px; height: 84px; }
+    .profile-section ul { gap: 14px; }
+    .profile-section .mockup-btn { --w: 116px; --h: 42px; }
+    .hub-container { padding: 14px 6px; border-radius: 16px; }
+    .card-wrapper { flex-basis: min(330px, 100%); max-width: min(330px, 100%); }
     .comments { padding: 14px; }
-    .comment-box { flex-direction: column; align-items: stretch; }
-    .comment-box .image-box img { width: 140px; margin: 0 auto; }
-    .profile-picture img { width: 110px; height: 110px; }
-    .mockup-btn img { max-width: 220px; }
-    #theme-switcher { top: 8px !important; right: 8px !important; padding: 6px 10px !important; font-size: 0.85rem !important; }
     .back-button-container { text-align: center; }
-    section h3 { font-size: 0.85rem; text-align: center; }
 }
-  
+@media (max-width: 420px) {
+    .comment-box { flex-direction: column; align-items: stretch; }
+    .comment-box .image-box { align-self: center; }
+}
